@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asfalt — město je tvoje</title>
+  <link rel="stylesheet" href="style.css?v=0b8040b9142f" />
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="game" aria-label="Město z pohledu první osoby"></canvas>
+    <header class="topbar">
+      <a class="brand" href="./"><span class="brand-icon">A<span>↗</span></span> ASFALT<span class="edition">SAN PALOMA / 01</span></a>
+      <div class="top-actions"><span class="live"><i></i> VOLNÝ POHYB</span><button id="sound" type="button" aria-label="Vypnout zvuk" aria-pressed="true">Zvuk: zapnutý</button><button id="sound-test" type="button" title="Přehrát ukázku kroku a motoru">Zkusit zvuky</button><button id="pause" aria-label="Pozastavit hru">Ⅱ</button></div>
+    </header>
+    <aside id="wanted" aria-label="Policejní pátrání"><div id="wanted-stars" aria-label="Hledanost 0 z 5">☆☆☆☆☆</div><small id="wanted-status">Bez pátrání</small><progress id="stop-meter" max="10" value="0" aria-label="Doba zastavení policií do pokuty" hidden></progress></aside>
+    <aside class="wallet" aria-label="Herní peníze"><span id="money">5 000 Kč</span></aside>
+    <section class="intro"><div class="eyebrow">TVŮJ MALÝ OTEVŘENÝ SVĚT</div><h1>Město je tvoje<span>.</span></h1><p>Procházej ulice. Každý dům má svůj charakter.</p></section>
+    <div id="look-hint">Klikni do hry pro rozhlížení myší · Esc uvolní kurzor</div><aside class="location"><span class="location-icon">↗</span><div><small>PRÁVĚ PROCHÁZÍŠ</small><strong id="district">CENTRO</strong></div><span class="coordinates" id="coordinates">000 / 000</span></aside>
+    <aside class="map-panel"><div class="map-heading"><span>SAN PALOMA</span><span>N ↑</span></div><canvas id="minimap" width="200" height="160" aria-label="Minimapa s pozicí hráče"></canvas><div class="map-footer"><span><i></i> Tvoje poloha</span><span>01 : 04</span></div></aside>
+    <footer><div class="controls"><span class="keys"><kbd>W</kbd><span><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span></span><div><strong>PROZKOUMEJ MĚSTO</strong><span>WASD: pohyb / řízení · mezerník: skok / brzda · E: auto / obchod / práce · Q: zbraň · R: pohled</span></div><span class="divider"></span><kbd class="shift">SHIFT</kbd><span class="run-label">Běh</span></div><div class="build"><span>PROTOTYP 020</span><span>1. / 3. OSOBA · SVOBODA POHYBU · <a href="assets/audio/CREDITS.md" target="_blank" rel="noopener" style="color:inherit">AUTOŘI ZVUKŮ</a></span></div></footer>
+    <div id="overlay" class="overlay" hidden><div><span class="eyebrow">CHVÍLE KLIDU</span><h2>Město počká.</h2><p>Stiskni Escape nebo pokračuj tlačítkem.</p><button id="resume">Zpátky do ulic ↗</button></div></div>
+    <div id="fine-screen" role="status" aria-live="assertive" hidden><strong>Pokuta 500 Kč,-</strong></div>
+    <aside id="delivery-hint" aria-live="polite"></aside>
+    <aside id="equipment" aria-live="polite">♥ 100/100 · Beze zbraně</aside>
+    <div class="equipment-actions"><button id="weapon-cycle" title="Q · Další zbraň">Q · Zbraň</button><button id="weapon-inspect" hidden>F · Prohlédnout</button><button id="weapon-fire" hidden>Střelba</button></div>
+    <section id="shop" aria-label="Nákup v obchodě" hidden>
+      <div class="shop-carry"><small>SAN PALOMA · OBCHOD</small><h2>Neseš k pokladně</h2><p id="shop-money"></p><ul id="shop-basket"></ul><strong id="shop-total"></strong><button id="shop-return" type="button">R · Vrátit poslední kus</button></div>
+      <p id="shop-message" role="status" aria-live="polite"></p>
+      <p id="shop-focus"></p>
+    </section>
+    <section id="work-panel" hidden aria-label="Pracovní směna">
+      <strong id="work-title"></strong><p id="work-instruction" aria-live="polite"></p><small id="work-progress"></small>
+      <div><button id="work-choice-0" hidden></button><button id="work-choice-1" hidden></button><button id="work-choice-2" hidden></button></div>
+    </section>
+    <button id="interact" type="button" hidden>E · Nastoupit</button>
+    <div class="touch-controls" aria-label="Dotykové ovládání"><button data-key="arrowup" aria-label="Nahoru">↑</button><button id="jump-brake" data-key=" " aria-label="Skok">Skok</button><div><button data-key="arrowleft" aria-label="Otočit doleva">←</button><button data-key="arrowdown" aria-label="Dolů">↓</button><button data-key="arrowright" aria-label="Otočit doprava">→</button></div></div>
+  </main>
+  <script src="assets/audio/samples.js?v=f492e319be94"></script>
+  <script src="audio.js?v=c716e5614f1d"></script>
+  <script src="cockpit.js?v=7b8fae024c06"></script>
+  <script src="renderer.js?v=f2c15867112f"></script>
+  <script src="weapons.js?v=weapons-05"></script>
+  <script src="game.js?v=police-multi-approach-023"></script>
+  <script src="shop.js?v=no-police-for-shooting-01"></script>
+  <script src="work.js?v=d74e347d4c55"></script>
+</body>
+</html>
